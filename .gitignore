@@ -61,7 +61,6 @@ libconftest.dylib*
 *.pyc
 *.o
 *.o-*
-*.patch
 *.a
 *.pb.cc
 *.pb.h
@@ -79,7 +78,6 @@ libconftest.dylib*
 
 # Compilation and Qt preprocessor part
 *.qm
-Makefile
 kepler-qt
 Kepler-Qt.app
 

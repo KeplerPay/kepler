@@ -303,7 +303,7 @@ UniValue getmininginfo(const JSONRPCRequest& request)
             "  \"difficulty\": xxx.xxxxx    (numeric) The current difficulty for active algorithm\n"
             "  \"difficulty_neoscrypt\": xxx.xxxxx   (numeric) The current difficulty for neoscrypt\n"
             "  \"difficulty_argon2d\": xxx.xxxxx (numeric) The current difficulty for argon2d\n"
-            "  \"difficulty_rfv2\": xxx.xxxxx (numeric) The current difficulty for rainforestV2\n"
+            "  \"difficulty_lyra2cz\": xxx.xxxxx (numeric) The current difficulty for Lyra2CZ\n"
             "  \"errors\": \"...\"            (string) Current errors\n"
             "  \"networkhashps\": nnn,      (numeric) The network hashes per second\n"
             "  \"pooledtx\": n              (numeric) The size of the mempool\n"
@@ -326,7 +326,7 @@ UniValue getmininginfo(const JSONRPCRequest& request)
     obj.push_back(Pair("difficulty",         (double)GetDifficulty(NULL, miningAlgo)));
     obj.push_back(Pair("difficulty_neoscrypt",   (double)GetDifficulty(NULL, ALGO_SLOT1)));
     obj.push_back(Pair("difficulty_argon2d", (double)GetDifficulty(NULL, ALGO_SLOT2)));
-    obj.push_back(Pair("difficulty_rainforest", (double)GetDifficulty(NULL, ALGO_SLOT3)));
+    obj.push_back(Pair("difficulty_lyra2cz", (double)GetDifficulty(NULL, ALGO_SLOT3)));
     obj.push_back(Pair("errors",           GetWarnings("statusbar")));
     obj.push_back(Pair("networkhashps",    getnetworkhashps(request)));
     obj.push_back(Pair("pooledtx",         (uint64_t)mempool.size()));

@@ -65,7 +65,7 @@ UniValue getinfo(const JSONRPCRequest& request)
             "  \"difficulty\": xxx.xxxxx     (numeric) The current difficulty for active algorithm\n"
             "  \"difficulty_neoscrypt\": xxx.xxxxx   (numeric) The current difficulty for neoscrypt\n"
             "  \"difficulty_argon2d\": xxx.xxxxx (numeric) The current difficulty for argon2d\n"
-            "  \"difficulty_rfv2\": xxx.xxxxx (numeric) The current difficulty for rainforestV2\n"
+            "  \"difficulty_lyra2cz\": xxx.xxxxx (numeric) The current difficulty for Lyra2CZ\n"
             "  \"testnet\": true|false,      (boolean) if the server is using testnet or not\n"
             "  \"keypoololdest\": xxxxxx,    (numeric) the timestamp (seconds since Unix epoch) of the oldest pre-generated key in the key pool\n"
             "  \"keypoolsize\": xxxx,        (numeric) how many new keys are pre-generated\n"
@@ -109,7 +109,7 @@ UniValue getinfo(const JSONRPCRequest& request)
     obj.push_back(Pair("difficulty",         (double)GetDifficulty(NULL, miningAlgo)));
     obj.push_back(Pair("difficulty_neoscrypt",   (double)GetDifficulty(NULL, ALGO_SLOT1)));
     obj.push_back(Pair("difficulty_argon2d", (double)GetDifficulty(NULL, ALGO_SLOT2)));
-    obj.push_back(Pair("difficulty_rainforest", (double)GetDifficulty(NULL, ALGO_SLOT3)));
+    obj.push_back(Pair("difficulty_lyra2cz", (double)GetDifficulty(NULL, ALGO_SLOT3)));
     obj.push_back(Pair("testnet",       Params().NetworkIDString() == CBaseChainParams::TESTNET));
 #ifdef ENABLE_WALLET
     if (pwalletMain) {

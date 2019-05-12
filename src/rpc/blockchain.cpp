@@ -1249,7 +1249,7 @@ UniValue getblockchaininfo(const JSONRPCRequest& request)
             "  \"difficulty\": xxxxxx,     (numeric) the current difficulty for active mining algorithm\n"
             "  \"difficulty_neoscrypt\": xxxxxx,   (numeric) the current difficulty for neoscrypt\n"
             "  \"difficulty_argon2d\": xxxxxx, (numeric) the current difficulty for argon2d\n"
-            "  \"difficulty_rfv2\": xxxxxx, (numeric) the current difficulty for rainforestV2\n"
+            "  \"difficulty_lyra2cz\": xxxxxx, (numeric) the current difficulty for Lyra2CZ\n"
             "  \"mediantime\": xxxxxx,     (numeric) median time for the current best block\n"
             "  \"verificationprogress\": xxxx, (numeric) estimate of verification progress [0..1]\n"
             "  \"chainwork\": \"xxxx\"     (string) total amount of work in active chain, in hexadecimal\n"
@@ -1289,7 +1289,7 @@ UniValue getblockchaininfo(const JSONRPCRequest& request)
     obj.push_back(Pair("difficulty",            (double)GetDifficulty(NULL, miningAlgo)));
     obj.push_back(Pair("difficulty_neoscrypt",      (double)GetDifficulty(NULL, ALGO_SLOT1)));
     obj.push_back(Pair("difficulty_argon2d",    (double)GetDifficulty(NULL, ALGO_SLOT2)));
-    obj.push_back(Pair("difficulty_rainforest",    (double)GetDifficulty(NULL, ALGO_SLOT3)));
+    obj.push_back(Pair("difficulty_lyra2cz",    (double)GetDifficulty(NULL, ALGO_SLOT3)));
     obj.push_back(Pair("mediantime",            (int64_t)chainActive.Tip()->GetMedianTimePast()));
     obj.push_back(Pair("verificationprogress",  GuessVerificationProgress(Params().TxData(), chainActive.Tip())));
     obj.push_back(Pair("chainwork",             chainActive.Tip()->nChainWork.GetHex()));

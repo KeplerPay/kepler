@@ -138,7 +138,7 @@ std::string GetAlgoName(int algo, uint32_t time)
         case ALGO_SLOT2:
             return std::string("Argon2d");
         case ALGO_SLOT3:
-            return std::string("RainforestV2");    
+            return std::string("Lyra2CZ");    
     }
     return std::string("Unknown");
 }

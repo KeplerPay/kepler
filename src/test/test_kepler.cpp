@@ -115,7 +115,7 @@ CBlock
 TestChain100Setup::CreateAndProcessBlock(const std::vector<CMutableTransaction>& txns, const CScript& scriptPubKey)
 {
     const CChainParams& chainparams = Params();
-    int algo = 2; // algo 3, rainforestV2
+    int algo = 2; // algo 3, Lyra2CZ
     std::unique_ptr<CBlockTemplate> pblocktemplate = BlockAssembler(chainparams).CreateNewBlock(scriptPubKey, algo);
     CBlock& block = pblocktemplate->block;
 

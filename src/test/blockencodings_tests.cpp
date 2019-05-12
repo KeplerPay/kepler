@@ -32,7 +32,7 @@ static CBlock BuildBlockTestCase() {
     block.nVersion = 42;
     block.hashPrevBlock = GetRandHash();
     block.nBits = 0x207fffff;
-    block.SetAlgo(2); // algo 3, rainforestV2
+    block.SetAlgo(2); // algo 3, Lyra2CZ
 
     tx.vin[0].prevout.hash = GetRandHash();
     tx.vin[0].prevout.n = 0;

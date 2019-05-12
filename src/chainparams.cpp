@@ -148,7 +148,7 @@ public:
 
         consensus.powLimit[ALGO_SLOT1] = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // NeoScrypt
         consensus.powLimit[ALGO_SLOT2] = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Argon2-4096
-        consensus.powLimit[ALGO_SLOT3] = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // RainforestV2
+        consensus.powLimit[ALGO_SLOT3] = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Lyra2CZ
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Kepler: 1 day
         
         consensus.nPowTargetSpacing = 120; // 120 second block time, target is set to 120 * NUM_ALGOS, so every algorithm finds a block every 2 mins on avg

@@ -1,0 +1,6 @@
+usr/local/bin/kepler-qt usr/bin
+share/pixmaps/kepler32.xpm usr/share/pixmaps
+share/pixmaps/kepler16.xpm usr/share/pixmaps
+share/pixmaps/kepler128.png usr/share/pixmaps
+debian/kepler-qt.desktop usr/share/applications
+debian/kepler-qt.protocol usr/share/kde4/services/

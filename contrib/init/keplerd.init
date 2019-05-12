@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  keplerd The Kepler Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: keplerd
+# processname: keplerd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/keplerd, see below
+if [ -f /etc/sysconfig/keplerd ]; then
+        . /etc/sysconfig/keplerd
+fi
+
+RETVAL=0
+
+prog=keplerd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/keplerd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/keplerd}
+
+# keplerd defaults to /usr/bin/keplerd, override with BITCOIND_BIN
+keplerd=${BITCOIND_BIN-/usr/bin/keplerd}
+
+# keplerd opts default to -disablewallet, override with BITCOIND_OPTS
+keplerd_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $keplerd $keplerd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

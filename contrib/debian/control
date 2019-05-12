@@ -1,0 +1,70 @@
+Source: kepler
+Section: utils
+Priority: optional
+Maintainer: Holger Schinzel <holger@kepler.org>
+Uploaders: Holger Schinzel <holger@kepler.org>
+Build-Depends: debhelper,
+ devscripts,
+ automake,
+ libtool,
+ bash-completion,
+ libdb4.8++-dev,
+ libssl-dev,
+ pkg-config,
+ libevent-dev,
+ libboost-system1.48-dev | libboost-system-dev (>> 1.47),
+ libboost-filesystem1.48-dev | libboost-filesystem-dev (>> 1.47),
+ libboost-program-options1.48-dev | libboost-program-options-dev (>> 1.47),
+ libboost-thread1.48-dev | libboost-thread-dev (>> 1.47),
+ libboost-test1.48-dev | libboost-test-dev (>> 1.47),
+ libboost-chrono1.48-dev | libboost-chrono-dev (>> 1.47),
+ libminiupnpc8-dev | libminiupnpc-dev,
+ qt4-qmake, libqt4-dev,
+ qttools5-dev-tools, qttools5-dev,
+ libqrencode-dev,
+ libprotobuf-dev, protobuf-compiler,
+ python,
+ libzmq3-dev
+Standards-Version: 3.9.2
+Homepage: https://www.kepler.org/
+Vcs-Git: git://github.com/keplerpay/kepler.git
+Vcs-Browser: https://github.com/keplerpay/kepler
+
+Package: keplerd
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency - daemon
+ Kepler is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Kepler uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Kepler Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides the daemon, keplerd, and the CLI tool
+ kepler-cli to interact with the daemon.
+
+Package: kepler-qt
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency - Qt GUI
+ Kepler is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Kepler uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Kepler Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides Kepler-Qt, a GUI for Kepler based on Qt.
+
+Package: kepler-tx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer digital currency - standalone transaction tool
+ Kepler is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Kepler uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Kepler Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides kepler-tx, a command-line transaction creation
+ tool which can be used without a kepler daemon.  Some means of
+ exchanging minimal transaction data with peers is still required.

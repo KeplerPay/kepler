@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Kepler Core
+Comment=Kepler P2P Cryptocurrency
+Comment[de]=Verbinde mit dem Kepler peer-to-peer Netzwerk
+Comment[fr]=Kepler, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Kepler, eşten eşe kriptografik sanal para birimi
+Exec=kepler-qt %u
+Terminal=false
+Type=Application
+Icon=kepler128
+MimeType=x-scheme-handler/kepler;
+Categories=Office;Finance;

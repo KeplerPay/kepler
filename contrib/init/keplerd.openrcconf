@@ -1,0 +1,33 @@
+# /etc/conf.d/keplerd: config file for /etc/init.d/keplerd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/keplercore/kepler.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/keplerd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/keplerd.pid"
+
+# Where to write keplerd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/keplerd"
+
+# User and group to own keplerd process
+#BITCOIND_USER="keplercore"
+#BITCOIND_GROUP="keplercore"
+
+# Path to keplerd executable
+#BITCOIND_BIN="/usr/bin/keplerd"
+
+# Nice value to run keplerd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BITCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for bitcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOIND_SIGTERM_TIMEOUT=60

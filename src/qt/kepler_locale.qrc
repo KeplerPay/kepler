@@ -1,0 +1,21 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/kepler_bg.qm</file>
+        <file alias="de">locale/kepler_de.qm</file>
+        <file alias="en">locale/kepler_en.qm</file>
+        <file alias="es">locale/kepler_es.qm</file>
+        <file alias="fi">locale/kepler_fi.qm</file>
+        <file alias="fr">locale/kepler_fr.qm</file>
+        <file alias="it">locale/kepler_it.qm</file>
+        <file alias="ja">locale/kepler_ja.qm</file>
+        <file alias="nl">locale/kepler_nl.qm</file>
+        <file alias="pl">locale/kepler_pl.qm</file>
+        <file alias="pt">locale/kepler_pt.qm</file>
+        <file alias="ru">locale/kepler_ru.qm</file>
+        <file alias="sk">locale/kepler_sk.qm</file>
+        <file alias="sv">locale/kepler_sv.qm</file>
+        <file alias="vi">locale/kepler_vi.qm</file>
+        <file alias="zh_CN">locale/kepler_zh_CN.qm</file>
+        <file alias="zh_TW">locale/kepler_zh_TW.qm</file>
+    </qresource>
+</RCC>

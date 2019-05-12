@@ -80,7 +80,7 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "12/05/2019 TEST Lyra2CZ";
+    const char* pszTimestamp = "XX/05/2019 NOTICIA";
     const CScript genesisOutputScript = CScript() << ParseHex("04b8bbf7e36419f96fc99b7d9d04a62e8d9a28f6c8dc548e7b9b84b44c380693b76e730f28d18894bc05a0a72d5bb8e35221dc0d375f8552c9485995f60a94d23a") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -148,7 +148,7 @@ public:
 
         consensus.powLimit[ALGO_SLOT1] = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // NeoScrypt
         consensus.powLimit[ALGO_SLOT2] = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Argon2-4096
-        consensus.powLimit[ALGO_SLOT3] = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Lyra2CZ
+        consensus.powLimit[ALGO_SLOT3] = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // RainforestV2
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Kepler: 1 day
         
         consensus.nPowTargetSpacing = 120; // 120 second block time, target is set to 120 * NUM_ALGOS, so every algorithm finds a block every 2 mins on avg
@@ -187,7 +187,7 @@ public:
         nPruneAfterHeight = 100000;
 
         // timestamp, nNonce, nBits, nVersion, genesisReward 
-        genesis = CreateGenesisBlock(1557682553, 36940069, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1555986291, 36257733, 0x1e0ffff0, 1, 50 * COIN);
         if(false)
         {
             printf("Searching for mainnet genesis block...\n");
@@ -225,8 +225,8 @@ public:
 
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x0a939488e0a774cc9da659f1771547cccc8c14183a212d3bb1c98211eff30746"));
-        assert(genesis.hashMerkleRoot == uint256S("0xedf341d41c30e92f0f12fdf34a1bcc325481e05fc3b27e74ab6b1e31b57d2e8b"));
+        assert(consensus.hashGenesisBlock == uint256S("0x"));
+        assert(genesis.hashMerkleRoot == uint256S("0x"));
 
 
         vSeeds.push_back(CDNSSeedData("kepler.cash", "seed1.kepler.cash"));
@@ -248,7 +248,7 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = false; // set to false for debug
+        fMiningRequiresPeers = true; // set to false for debug
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;

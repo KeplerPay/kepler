@@ -13,6 +13,7 @@
 
 #include "crypto/neoscrypt/neoscrypt.h"
 #include "crypto/hashargon2d.h"
+#include "crypto/Lyra2/Lyra2.h"
 
 
 #define BEGIN(a)            ((char*)&(a))
@@ -40,7 +41,11 @@ uint256 CBlockHeader::GetPoWHash(int algo) const
             return HashArgon2d(BEGIN(nVersion), END(nNonce));
         case ALGO_SLOT3:
         {    
-            return RainforestV2(BEGIN(nVersion), END(nNonce));
+            //return RainforestV2(BEGIN(nVersion), END(nNonce));
+            uint256 powHash;
+            LYRA2(BEGIN(powHash), 32, BEGIN(nVersion), 80, BEGIN(nVersion), 80, 2, 4, 256); // Lyra2CZ
+            return powHash;
+        
         }   
     }
     // catch-all if above doesn't match anything to algo

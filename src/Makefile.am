@@ -356,8 +356,10 @@ crypto_libkepler_crypto_a_SOURCES += \
   crypto/argon2/encoding.h \
   crypto/argon2/thread.c \
   crypto/argon2/thread.h \
-  crypto/rfv2/rfv2_core.c \
-  crypto/rfv2/rfv2.h \
+  crypto/Lyra2/Lyra2.c \
+  crypto/Lyra2/Lyra2.h \
+  crypto/Lyra2/Sponge.c \
+  crypto/Lyra2/Sponge.h \
   crypto/neoscrypt/neoscrypt.c \
   crypto/neoscrypt/neoscrypt.h
 

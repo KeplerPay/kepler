@@ -168,10 +168,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000283e00"); // 1 getblockchaininfo: chainwork
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000003055a0dcb500"); //
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0dee52b61b09df550ea98fde7918ad694fa020be881af6b5f67b0b6ea7a508aa"); // 1
+        consensus.defaultAssumeValid = uint256S("0x0dee52b61b09df550ea98fde7918ad694fa020be881af6b5f67b0b6ea7a508aa"); // block 1
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -188,41 +188,6 @@ public:
 
         // timestamp, nNonce, nBits, nVersion, genesisReward 
         genesis = CreateGenesisBlock(1557695880, 40694978, 0x1e0ffff0, 1, 50 * COIN);
-        if(false)
-        {
-            printf("Searching for mainnet genesis block...\n");
-            bool fNegative;
-            bool fOverflow;
-            arith_uint256 bnTarget;
-            bnTarget.SetCompact(genesis.nBits, &fNegative, &fOverflow);
-            int algo = genesis.GetAlgo();
-
-            uint256 thash = genesis.GetPoWHash(algo);
-
-            while (UintToArith256(thash) > bnTarget)
-            {
-                thash = genesis.GetPoWHash(algo);
-                if (UintToArith256(thash) <= bnTarget)
-                    break;
-                if ((genesis.nNonce & 0xFFFFF) == 0)
-                {
-                    printf("nonce %08X: PoWhash = %s (target = %s)\n", genesis.nNonce, thash.ToString().c_str(), bnTarget.ToString().c_str());
-                }
-                ++genesis.nNonce;
-                if (genesis.nNonce == 0)
-                {
-                    printf("NONCE WRAPPED, incrementing time\n");
-                    ++genesis.nTime;
-                }
-            }
-
-            printf("genesis.nTime = %u \n", genesis.nTime);
-            printf("genesis.nNonce = %u \n", genesis.nNonce);
-            printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-            printf("genesis.GetPoWHash = %s\n", genesis.GetPoWHash(algo).ToString().c_str());
-            printf("genesis.hashMerkleRoot = %s\n", BlockMerkleRoot(genesis).ToString().c_str());
-        }
-
 
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x8276eee8e4c96a6b86ecbd763e3dc3e762222fbaf4379444d05ee71caa6aa2e3"));
@@ -248,7 +213,7 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = true; // set to false for debug
+        fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
@@ -263,14 +228,16 @@ public:
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
             (  1, uint256S("0x0dee52b61b09df550ea98fde7918ad694fa020be881af6b5f67b0b6ea7a508aa"))
-            //(  1000, uint256S("0x2fc4ae8e56ac19d9dc3f4aba22062d63627b8ea4d918a3d814c763923fa2b836"))
+            (  500, uint256S("0x014c68ea96b7e9257fcaf7b1f0d4f6896b10fdf5f2c499005846087fb6697b8b"))
+            (  1000, uint256S("0x92eff4142c85ba53f5d21ec31211b56ae7a53fc30c87a63a5c92b5d2c28c7d99"))
+            (  3000, uint256S("0xa46d4ac3cf60c410701d84d7005bb7cff36f94c227e4868052135f9fcf38f99a"))
         };
 
         chainTxData = ChainTxData{
-            1557696457, // * UNIX timestamp of last known number of transactions
-            1,    // * total number of transactions between genesis and that timestamp
+            1558486129, // * UNIX timestamp of last known number of transactions
+            3270,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            0.1         // * estimated number of transactions per second after that timestamp
+            0.05         // * estimated number of transactions per second after that timestamp
         };
     }
 };
@@ -378,8 +345,6 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        /*vSeeds.push_back(CDNSSeedData("keplerdot.io",  "testnet-seed.keplerdot.io"));
-        vSeeds.push_back(CDNSSeedData("masternode.io", "test.dnsseed.masternode.io"));*/
         vSeeds.push_back(CDNSSeedData("kepler.cash", "testseed.kepler.cash"));
 
 
